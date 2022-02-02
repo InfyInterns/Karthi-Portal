@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>Posts Under Specific Topic</title>
+</head>
+<body>
+    <div class="content">
+    <h1 style="font-family: cursive;">{{ topic_title }}</h1>
+  
+    
+    {% if all_posts|length < 1 %}
+    <div>
+    <h4 style="font-family: cursive;">There are no posts under {{topic_title}}.Please Login to create one below!</h4>
+    <a href="/login" class="btn btn-success">Login with Google</a>
+    </div>
+    {% else %}
+        {% for post in all_posts %}
+        <div class="card card border-success mb-3">
+            <h6 class="card-header">{{ post.post_title }}</h5>
+            <div class="card-body">
+              <p style="font-size:10px;">{{ post.post_description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+</body>
+</html>

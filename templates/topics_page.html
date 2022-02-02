@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>Topics with Description</title>
+</head>
+<body>
+    <div class="content">
+        <h6 style="font-family: cursive;">If you have the knowledge, let others light their candles with it........ :)       
+        <a href="/login" class="btn btn-success btn-sm">Login with Google</a></h6> 
+        <p style="font-family: cursive;">Join Knowledge Portal Community Today!<br> Start Sharing your Knowledge Today</p> 
+    
+    </div>
+    <div class="row">
+        {% for topic in all_topics %}
+        <div class="col-sm-6">
+          <div class="card card border-success mb-3" style="height: 10rem;">
+            <div class="card-body">
+              <p class="card-title">{{ topic.topic_title }}</p>
+              <p style="font-size:8px;">{{ topic.topic_description }}</p>
+              <a href="/topics/{{topic.topic_id}}" class="btn btn-success btn-sm">View Posts</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+   
+</body>
+</html>

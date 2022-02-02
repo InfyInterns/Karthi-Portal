@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>Document</title>
+</head>
+<body>
+   <div class="form-content">
+        <h4 style="font-family: Ink Free;">Update your post</h4>
+        <form action="/update/{{post_to_be_update.post_id}}" method="POST">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Title</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="post_title" value="{{post_to_be_update.post_title}}" >
+              </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Update your knowledge</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="post_description" value="{{post_to_be_update.post_description}}"></textarea>
+            </div>
+            <button class="btn btn-success btn-sm">Submit</button>
+        </form>
+        </div>
+    
+</body>
+</html>

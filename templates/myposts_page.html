@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/main.css">
+    <title>My Posts</title>
+</head>
+<body>
+    <div class="content">
+    <h5 style="font-family: Goudy Old Style;">Feel Free to modify your posts or
+    <a href="/topics" class="btn btn-success btn-sm">Back to Topics</a> or
+    <a href="/logout" class="btn btn-success btn-sm">Logout</a>
+    </div>
+    {% if all_posts|length < 1 %}
+    <div>
+        <h4 style="font-family: cursive;">You haven't created any posts yet! Create Your First Post</h4>
+        </div>
+    <h4></h4>
+    {% else %}
+        {% for post in all_posts %}
+        <div class="card border-success mb-3">
+            <div class="card-header">
+                {{ post.topic_title }}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ post.post_title }}</h5>
+              <p class="card-text">{{ post.post_description }}</p>
+              <a href="/update/{{post.post_id}}" class="btn btn-success">Update</a>
+              <a href="/delete/{{post.post_id}}" class="btn btn-danger">Delete</a>
+            </div>
+          </div>
+        {% endfor %}
+    </table>
+
+    
+    {% endif %}
+    
+    
+    </div>
+</body>
+</html>
